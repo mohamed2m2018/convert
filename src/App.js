@@ -98,7 +98,7 @@ const Website = () => {
             <div className="text-white space-y-10">
               <div className="space-y-6">
                 <div className="inline-block px-6 py-2 bg-blue-500/20 rounded-full backdrop-blur-xl border border-blue-400/20">
-                  <span className="text-blue-200 font-medium">Welcome to Convert Service</span>
+                  <span className="text-blue-200 font-medium">About Us</span>
                 </div>
                 <h1 className="text-6xl font-bold leading-tight tracking-tight">
                   For Services and{" "}
