@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import {
   Hexagon,
-  ChevronDown,
   Globe,
   Users,
   Shield,
@@ -10,6 +10,8 @@ import {
   MapPin,
   Phone,
   Mail,
+  Menu,
+  X,
 } from "lucide-react";
 
 const Card = ({ className = "", children, ...props }) => {
@@ -55,8 +57,7 @@ const CardContent = ({ className = "", children, ...props }) => {
 const Website = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Reference for the Contact Us section
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const contactRef = useRef(null);
 
   useEffect(() => {
@@ -65,134 +66,176 @@ const Website = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll to the Contact Us section
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
+    setMobileMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
-      {/* Enhanced Navbar */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-x-hidden">
+      {/* Navbar */}
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled 
-            ? "bg-white/80 backdrop-blur-xl shadow-lg py-4" 
-            : "bg-transparent py-6"
+          true 
+            ? "bg-white/80 backdrop-blur-xl shadow-lg py-2" 
+            : "bg-transparent py-4"
         }`}
       >
-        <div className="container mx-auto px-8">
+        <div className="w-full max-w-7xl mx-auto px-3">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Convert Service
-            </h1>
+            <div className="flex items-center space-x-2">
+              <img 
+                src="https://i.postimg.cc/RhrFmL6n/logo-no-background.png" 
+                alt="Logo" 
+                className="w-12 h-12 object-contain"
+              />
+              <h1 className=" text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">
+                Convert Service
+              </h1>
+            </div>
+            
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-1"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-gray-600" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-600" />
+              )}
+            </button>
+
+            <div className="hidden lg:flex items-center">
+              <button
+                onClick={scrollToContact}
+                className="text-sm text-black font-semibold hover:text-blue-600 transition-colors"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`
+          lg:hidden absolute w-full bg-white/95 backdrop-blur-lg shadow-lg transition-all duration-300
+          ${mobileMenuOpen ? 'max-h-96 py-2' : 'max-h-0 overflow-hidden'}
+        `}>
+          <div className="w-full max-w-7xl mx-auto px-3">
+            <button
+              onClick={scrollToContact}
+              className="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Enhanced Hero Section */}
-      <header className="relative min-h-screen flex items-center">
+      {/* Hero Section */}
+      <header className="relative min-h-screen flex items-center pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.2)_0%,transparent_70%)]" />
-        <div className="container mx-auto px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="text-white space-y-10">
-              <div className="space-y-6">
-                <div className="inline-block px-6 py-2 bg-blue-500/20 rounded-full backdrop-blur-xl border border-blue-400/20">
-                  <span className="text-blue-200 font-medium">About Us</span>
+        <div className="w-full max-w-7xl mx-auto px-3 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 items-center">
+            <div className="text-white space-y-4">
+              <div className="space-y-3">
+                <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full backdrop-blur-xl border border-blue-400/20">
+                  <span className="text-xs sm:text-sm text-blue-200">About Us</span>
                 </div>
-                <h1 className="text-6xl font-bold leading-tight tracking-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight">
                   For Services and{" "}
                   <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
                     Consultations
                   </span>
                 </h1>
               </div>
-              <p className="text-xl text-blue-100/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
                 Convert Service Company is a premier trading company in Egypt, building lasting partnerships 
                 through excellence in service delivery and exceeding expectations.
               </p>
-              <div className="flex gap-6">
+              <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
+             We create commercial flows, import and export products, arranging and managing international projects with our partners. Supported our network, we are able to integrate all these functions with our fruitful experience.
+              </p>
+              <div className="flex gap-3">
                 <button onClick={scrollToContact} 
-                  className="group bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold 
+                  className="group bg-white text-blue-900 px-4 py-2 rounded-xl font-semibold 
                     hover:bg-blue-50 transition-all duration-300 hover:shadow-xl 
-                    hover:shadow-white/20 flex items-center gap-3">
+                    hover:shadow-white/20 flex items-center gap-2 text-sm">
                   Get Started
-                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
-            <div className="hidden lg:block backdrop-blur-xl bg-white/5 rounded-3xl p-10 border border-white/10">
-              <div className="space-y-8">
-                <p className="text-white text-lg leading-relaxed">
-                  We create commercial flows, import and export products,
-                  arranging and managing international projects with our
-                  partners, supported by our extensive network.
-                </p>
-                <p className="text-white text-lg leading-relaxed">
-                  Our numerous competencies allow us to respond to the needs of
-                  industries looking for a new market. We look forward to
-                  welcoming you and enhancing your business presence in Japan.
-                </p>
-              </div>
+            <div className="mt-10">
+              <img 
+                src="https://i.postimg.cc/qvqmfs8L/Screenshot-2024-12-21-at-9-33-10-AM.png" 
+                alt="Hero"
+                className="w-full h-auto rounded-xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-          <span className="text-white/60 text-sm">Scroll to explore</span>
-          <ChevronDown className="text-white/80 animate-bounce w-6 h-6" />
-        </div>
       </header>
 
-      {/* Enhanced Features Section */}
-      <section className="py-32 relative">
+      {/* Features Section */}
+      <section className="py-12 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-8">
+        <div className="w-full max-w-7xl mx-auto px-3">
           <div className="max-w-xl">
-            <h2 className="text-4xl font-bold leading-tight mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight mb-3">
               Our Focus
             </h2>
-            <p className="text-gray-600 text-lg mb-16">
+            <p className="text-sm sm:text-base text-gray-600 mb-6">
               Delivering excellence through innovation and strategic partnerships
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center	">
             {[
               {
                 icon: Globe,
                 title: "Foster Growth",
                 desc: "Convert service company focuses to foster growth and promote enduring business ties with its client.",
+                image: "https://i.postimg.cc/zB8KNNsr/Screenshot-2024-12-21-at-9-35-34-AM.png"
               },
               {
                 icon: Users,
                 title: "Customer Responsiveness",
                 desc: "Customer responsiveness and commitment is the driving force in our quest for excellence.",
+                image: "https://i.postimg.cc/RVNf4XDN/Screenshot-2024-12-21-at-9-36-16-AM.png"
               },
               {
                 icon: Shield,
                 title: "Effective Supply Chain",
                 desc: "An effective supply chain manager - Right from sourcing supply of material at the doorstep of the customer in all Oil & Gas Items.",
+                image: "https://i.postimg.cc/kGZ22PpD/Screenshot-2024-12-21-at-9-37-50-AM.png"
               },
-            ].map(({ icon: Icon, title, desc }, idx) => (
-              <Card key={idx}>
-                <CardContent className="relative group">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full 
-                    -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
-                  <Icon className="w-14 h-14 text-blue-600 mb-6 transition-transform duration-500 
-                    group-hover:scale-110 group-hover:rotate-6" />
-                  <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{desc}</p>
-                </CardContent>
+            ].map(({ icon: Icon, title, desc, image }, idx) => (
+              <Card key={idx} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                               <CardContent className="relative group">
+
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+                <div className="p-4 ">
+                  <Icon className="w-8 h-8 text-blue-600 mb-3" />
+                  <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                  <p className="text-sm text-gray-600">{desc}</p>
+                </div>
+              </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Enhanced Business Lines Section */}
+      {/* Business Lines Section */}
       <section className="py-32 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.3)_0%,transparent_70%)]" />
-        <div className="container mx-auto px-8 relative z-10">
-          <h2 className="text-5xl font-bold mb-20 text-center">
+        <div className= "container w-full max-w-7xl mx-auto px-3 relative z-10">
+          <h2 className="text-5xl sm:text-2xl lg:text-3xl font-bold mb-20 text-center">
             Our Lines of Business
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -211,18 +254,18 @@ const Website = () => {
                 className="group cursor-pointer transform transition-all duration-500"
                 onMouseEnter={() => setActiveIndex(index)}
               >
-                <div className="flex items-center gap-4 mb-3">
+                <div className="flex items-center gap-2">
                   <Hexagon
-                    className={`transition-all duration-500 ${
+                    className={`w-4 h-4 transition-all duration-500 ${
                       activeIndex === index
                         ? "text-blue-300 scale-125"
                         : "text-blue-500"
                     }`}
                   />
-                  <span className="font-semibold text-lg">{business}</span>
+                  <span className="text-sm font-medium">{business}</span>
                 </div>
                 <div
-                  className={`h-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full transition-all duration-500 ${
+                  className={`h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full transition-all duration-500 ${
                     activeIndex === index
                       ? "w-full opacity-100"
                       : "w-0 opacity-0"
@@ -234,38 +277,37 @@ const Website = () => {
         </div>
       </section>
 
-      {/* Enhanced Mission Section */}
-      <section className="py-32 relative">
+      {/* Mission Section */}
+      <section className="py-12 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
-        <div className="container mx-auto px-8">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="text-5xl font-bold mb-6">Our Mission</h2>
-            <p className="text-gray-600 text-lg">
+        <div className="w-full max-w-7xl mx-auto px-3">
+          <div className="max-w-3xl mx-auto text-center mb-8">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">Our Mission</h2>
+            <p className="text-sm sm:text-base text-gray-600">
               Delivering excellence through innovation and unwavering commitment
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-4">
             {[
               "Market leadership in defend market segments",
               "Providing quality products & reliable services",
               "Professional marketing partnership",
               "Customer-centric approach",
             ].map((mission, idx) => (
-              <Card key={idx}>
-                <CardContent>
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center 
-                      group-hover:bg-blue-600 transition-all duration-500 group-hover:rotate-12">
-                      <Clock className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-semibold mb-3">{mission}</h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Committed to excellence in every aspect of our service delivery,
-                        ensuring the highest standards of quality and reliability.
-                      </p>
-                    </div>
+              <Card key={idx} className="bg-white rounded-xl shadow-lg p-4">
+               <CardContent>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-blue-600" />
                   </div>
+                  <div>
+                    <h3 className="text-base font-semibold mb-2">{mission}</h3>
+                    <p className="text-sm text-gray-600">
+                      Committed to excellence in every aspect of our service delivery,
+                      ensuring the highest standards of quality and reliability.
+                    </p>
+                  </div>
+                </div>
                 </CardContent>
               </Card>
             ))}
@@ -273,48 +315,45 @@ const Website = () => {
         </div>
       </section>
 
-      {/* Enhanced Contact Section */}
-      <section
-        ref={contactRef}
-        className="py-32 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800 text-white relative overflow-hidden"
-      >
+      {/* Contact Section */}
+      <section ref={contactRef} className="py-12 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.3)_0%,transparent_70%)]" />
-        <div className="container mx-auto px-8 relative z-10">
+        <div className="w-full max-w-7xl mx-auto px-3 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-bold mb-8">Contact Us</h2>
-            <p className="text-xl mb-16 text-blue-100/90">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Contact Us</h2>
+            <p className="text-sm sm:text-base mb-8 text-blue-100/90">
               If you have questions or need more information, we're here to help.
               Reach out through any of the following channels.
             </p>
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="w-8 h-8" />
+            <div className="grid sm:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-semibold">Address</h3>
-                <p className="text-blue-100/80">
+                <h3 className="text-lg font-semibold">Address</h3>
+                <p className="text-sm text-blue-100/80">
                   Bldg 2107, Army Buildings,
                   <br />
-                  Zahraa Nasr City, Cairo, Egypt
+                  Zahraa Nasr City, Cairo
                 </p>
               </div>
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Phone className="w-8 h-8" />
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-semibold">Phone</h3>
-                <p className="text-blue-100/80">
+                <h3 className="text-lg font-semibold">Phone</h3>
+                <p className="text-sm text-blue-100/80">
                   (+2) 02 410 4999
                   <br />
                   (+2) 0100 052 5699
                 </p>
               </div>
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8" />
+              <div className="space-y-3">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-semibold">Email</h3>
-                <a href="mailto:info@convert-svc.com" className="text-blue-300 hover:text-blue-200 transition-colors">
+                <h3 className="text-lg font-semibold">Email</h3>
+                <a href="mailto:info@convert-svc.com" className="text-sm text-blue-300 hover:text-blue-200 transition-colors">
                   info@convert-svc.com
                 </a>
               </div>
@@ -323,20 +362,18 @@ const Website = () => {
         </div>
       </section>
 
-      {/* Enhanced Footer */}
-      <footer className="bg-gray-900 text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0  opacity-5" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold">Convert Service</h3>
-              <p className="text-gray-400">For Services and Consultations</p>
-            </div>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 relative overflow-hidden">
+        <div className="w-full max-w-7xl mx-auto px-3 relative z-10">
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg font-bold">Convert Service</h3>
+            <p className="text-sm text-gray-400">For Services and Consultations</p>
           </div>
         </div>
       </footer>
     </div>
   );
+
 };
 
 export default Website;
