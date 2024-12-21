@@ -25,7 +25,7 @@ const Card = ({ className = "", children, ...props }) => {
         border border-gray-100
         relative
         before:absolute before:inset-0 
-        before:bg-gradient-to-r before:from-blue-50/50 before:to-transparent 
+        before:bg-gradient-to-r before:from-green-50/50 before:to-transparent 
         before:opacity-0 hover:before:opacity-100
         before:transition-opacity before:duration-300
         ${className}
@@ -72,7 +72,7 @@ const Website = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-green-50 to-emerald-50 overflow-x-hidden">
       {/* Navbar */}
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
@@ -89,7 +89,7 @@ const Website = () => {
                 alt="Logo" 
                 className="w-12 h-12 object-contain"
               />
-              <h1 className=" text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent truncate">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent truncate">
                 Convert Service
               </h1>
             </div>
@@ -108,7 +108,7 @@ const Website = () => {
             <div className="hidden lg:flex items-center">
               <button
                 onClick={scrollToContact}
-                className="text-sm text-black font-semibold hover:text-blue-600 transition-colors"
+                className="text-sm text-green-600 font-semibold hover:text-green-600 transition-colors"
               >
                 Contact Us
               </button>
@@ -124,7 +124,7 @@ const Website = () => {
           <div className="w-full max-w-7xl mx-auto px-3">
             <button
               onClick={scrollToContact}
-              className="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+              className="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-green-50 rounded-lg"
             >
               Contact Us
             </button>
@@ -134,33 +134,33 @@ const Website = () => {
 
       {/* Hero Section */}
       <header className="relative min-h-screen flex items-center pt-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.2)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900 via-emerald-900 to-green-800" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.2)_0%,transparent_70%)]" />
         <div className="w-full max-w-7xl mx-auto px-3 relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 items-center">
             <div className="text-white space-y-4">
               <div className="space-y-3">
-                <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full backdrop-blur-xl border border-blue-400/20">
-                  <span className="text-xs sm:text-sm text-blue-200">About Us</span>
+                <div className="inline-block px-3 py-1 bg-green-500/20 rounded-full backdrop-blur-xl border border-green-400/20">
+                  <span className="text-xs sm:text-sm text-green-200">About Us</span>
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight">
                   For Services and{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
                     Consultations
                   </span>
                 </h1>
               </div>
-              <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-green-100/90 leading-relaxed">
                 Convert Service Company is a premier trading company in Egypt, building lasting partnerships 
                 through excellence in service delivery and exceeding expectations.
               </p>
-              <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
-             We create commercial flows, import and export products, arranging and managing international projects with our partners. Supported our network, we are able to integrate all these functions with our fruitful experience.
+              <p className="text-sm sm:text-base text-green-100/90 leading-relaxed">
+                We create commercial flows, import and export products, arranging and managing international projects with our partners. Supported by our network, we are able to integrate all these functions with our fruitful experience.
               </p>
               <div className="flex gap-3">
                 <button onClick={scrollToContact} 
-                  className="group bg-white text-blue-900 px-4 py-2 rounded-xl font-semibold 
-                    hover:bg-blue-50 transition-all duration-300 hover:shadow-xl 
+                  className="group bg-white text-green-900 px-4 py-2 rounded-xl font-semibold 
+                    hover:bg-green-50 transition-all duration-300 hover:shadow-xl 
                     hover:shadow-white/20 flex items-center gap-2 text-sm">
                   Get Started
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -180,7 +180,7 @@ const Website = () => {
 
       {/* Features Section */}
       <section className="py-12 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(16,185,129,0.1)_0%,transparent_60%)]" />
         <div className="w-full max-w-7xl mx-auto px-3">
           <div className="max-w-xl">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight mb-3">
@@ -190,7 +190,7 @@ const Website = () => {
               Delivering excellence through innovation and strategic partnerships
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 items-center	">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 icon: Globe,
@@ -211,20 +211,19 @@ const Website = () => {
                 image: "https://i.postimg.cc/kGZ22PpD/Screenshot-2024-12-21-at-9-37-50-AM.png"
               },
             ].map(({ icon: Icon, title, desc, image }, idx) => (
-              <Card key={idx} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                               <CardContent className="relative group">
-
-                <img 
-                  src={image} 
-                  alt={title} 
-                  className="w-full h-40 object-cover rounded-lg"
-                />
-                <div className="p-4 ">
-                  <Icon className="w-8 h-8 text-blue-600 mb-3" />
-                  <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                  <p className="text-sm text-gray-600">{desc}</p>
-                </div>
-              </CardContent>
+              <Card key={idx} className="group">
+                <CardContent>
+                  <img 
+                    src={image} 
+                    alt={title} 
+                    className="w-full h-40 object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="p-4">
+                    <Icon className="w-8 h-8 text-green-600 mb-3" />
+                    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                    <p className="text-sm text-gray-600">{desc}</p>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
@@ -232,10 +231,10 @@ const Website = () => {
       </section>
 
       {/* Business Lines Section */}
-      <section className="py-32 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.3)_0%,transparent_70%)]" />
-        <div className= "container w-full max-w-7xl mx-auto px-3 relative z-10">
-          <h2 className="text-5xl sm:text-2xl lg:text-3xl font-bold mb-20 text-center">
+      <section className="py-32 bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.3)_0%,transparent_70%)]" />
+        <div className="container w-full max-w-7xl mx-auto px-3 relative z-10">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-20 text-center">
             Our Lines of Business
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -258,14 +257,14 @@ const Website = () => {
                   <Hexagon
                     className={`w-4 h-4 transition-all duration-500 ${
                       activeIndex === index
-                        ? "text-blue-300 scale-125"
-                        : "text-blue-500"
+                        ? "text-green-300 scale-125"
+                        : "text-green-500"
                     }`}
                   />
                   <span className="text-sm font-medium">{business}</span>
                 </div>
                 <div
-                  className={`h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full transition-all duration-500 ${
+                  className={`h-0.5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full transition-all duration-500 ${
                     activeIndex === index
                       ? "w-full opacity-100"
                       : "w-0 opacity-0"
@@ -279,7 +278,7 @@ const Website = () => {
 
       {/* Mission Section */}
       <section className="py-12 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(16,185,129,0.1)_0%,transparent_60%)]" />
         <div className="w-full max-w-7xl mx-auto px-3">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">Our Mission</h2>
@@ -294,20 +293,20 @@ const Website = () => {
               "Professional marketing partnership",
               "Customer-centric approach",
             ].map((mission, idx) => (
-              <Card key={idx} className="bg-white rounded-xl shadow-lg p-4">
-               <CardContent>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-blue-600" />
+              <Card key={idx} className="group">
+                <CardContent>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                      <Clock className="w-4 h-4 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold mb-2">{mission}</h3>
+                      <p className="text-sm text-gray-600">
+                        Committed to excellence in every aspect of our service delivery,
+                        ensuring the highest standards of quality and reliability.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-semibold mb-2">{mission}</h3>
-                    <p className="text-sm text-gray-600">
-                      Committed to excellence in every aspect of our service delivery,
-                      ensuring the highest standards of quality and reliability.
-                    </p>
-                  </div>
-                </div>
                 </CardContent>
               </Card>
             ))}
@@ -316,15 +315,16 @@ const Website = () => {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactRef} className="py-12 bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.3)_0%,transparent_70%)]" />
+      <section ref={contactRef} className="py-12 bg-gradient-to-br from-green-900 via-emerald-900 to-green-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(16,185,129,0.3)_0%,transparent_70%)]" />
         <div className="w-full max-w-7xl mx-auto px-3 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Contact Us</h2>
-            <p className="text-sm sm:text-base mb-8 text-blue-100/90">
+            <p className="text-sm sm:text-base mb-8 text-green-100/90">
               If you have questions or need more information, we're here to help.
               Reach out through any of the following channels.
             </p>
+
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="space-y-3">
                 <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4">
