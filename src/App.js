@@ -288,10 +288,11 @@ const Website = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              "Market leadership in defend market segments",
-              "Providing quality products & reliable services",
-              "Professional marketing partnership",
-              "Customer-centric approach",
+              {key: "Market leadership", value: "Being market leader in defend market segments."},
+              {key: "Customer Satisfaction", value: "Being the preferred supplier of our customers, with our products exceeding their quality requirements."},
+              {key: "Professional marketing partnership", value: "Becoming professional marketing partner for our principals to meet the objectives of sales, market information, and customer service."},
+              {key: "Timely Information", value: "Giving timely information to the customers regarding trends of the market dynamics."}
+
             ].map((mission, idx) => (
               <Card key={idx} className="group">
                 <CardContent>
@@ -300,10 +301,9 @@ const Website = () => {
                       <Clock className="w-4 h-4 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold mb-2">{mission}</h3>
+                      <h3 className="text-base font-semibold mb-2">{mission.key}</h3>
                       <p className="text-sm text-gray-600">
-                        Committed to excellence in every aspect of our service delivery,
-                        ensuring the highest standards of quality and reliability.
+                        {mission.value}
                       </p>
                     </div>
                   </div>
