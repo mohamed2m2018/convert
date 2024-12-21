@@ -208,7 +208,7 @@ const Website = () => {
                 icon: Shield,
                 title: "Effective Supply Chain",
                 desc: "An effective supply chain manager - Right from sourcing supply of material at the doorstep of the customer in all Oil & Gas Items.",
-                image: "https://i.postimg.cc/kGZ22PpD/Screenshot-2024-12-21-at-9-37-50-AM.png"
+                image: "https://i.postimg.cc/TYdy3QNr/Screenshot-2024-12-21-at-10-12-42-AM.png"
               },
             ].map(({ icon: Icon, title, desc, image }, idx) => (
               <Card key={idx} className="group">
