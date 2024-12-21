@@ -140,7 +140,7 @@ const Website = () => {
           <div className="grid lg:grid-cols-2 gap-6 items-center">
             <div className="text-white space-y-4">
               <div className="space-y-3">
-                <div className="inline-block px-3 py-1 bg-green-500/20 rounded-full backdrop-blur-xl border border-green-400/20">
+                <div className="inline-block px-3 py-1 my-5 bg-green-500/20 rounded-full backdrop-blur-xl border border-green-400/20">
                   <span className="text-xs sm:text-sm text-green-200">About Us</span>
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight">
@@ -167,7 +167,7 @@ const Website = () => {
                 </button>
               </div>
             </div>
-            <div className="mt-10">
+            <div className="my-10">
               <img 
                 src="https://i.postimg.cc/qvqmfs8L/Screenshot-2024-12-21-at-9-33-10-AM.png" 
                 alt="Hero"
