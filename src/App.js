@@ -232,6 +232,7 @@ const Website = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
+              "Collection on Behave",
               "Transportation",
               "Commodity Chemical",
               "Safety Equipment",
