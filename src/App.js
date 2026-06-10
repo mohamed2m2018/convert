@@ -55,16 +55,9 @@ const CardContent = ({ className = "", children, ...props }) => {
 };
 
 const Website = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const contactRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
