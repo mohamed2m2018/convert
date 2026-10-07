@@ -395,7 +395,7 @@ const Website = () => {
               </div>
             </div>
             <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} Convert Service. All rights reserved.
+              &copy; 2024–{new Date().getFullYear()} Convert Service. All rights reserved.
             </p>
           </div>
         </div>
